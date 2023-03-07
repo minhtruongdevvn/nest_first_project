@@ -1,5 +1,6 @@
-import { Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
+import { AuthDto } from './dto';
 
 @Controller('auth')
 export class AuthController {
@@ -14,12 +15,16 @@ export class AuthController {
   /* nest will auto handle the return datatype for us eg. application/json */
 
   @Post('signup')
-  signup() {
-    return 'sign up';
+  signup(
+    @Body() dto: AuthDto,
+    // @Body('email') email: string,
+    // @Body('password') password: string,
+  ) {
+    return this.authService.signup(dto);
   }
 
   @Post('signin')
-  signin() {
-    return 'sign in';
+  signin(@Body() dto: AuthDto) {
+    return this.authService.login(dto);
   }
 }
