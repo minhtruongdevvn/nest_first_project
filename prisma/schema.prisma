@@ -1,6 +1,10 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 // run prisma generate to generate types for the model
+
+// npm install prisma --save-dev
+// npx prisma init
+
 // yarn prisma migrate dev
 
 generator client {

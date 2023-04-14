@@ -79,6 +79,7 @@ describe('App e2e', () => {
       });
     });
   });
+
   describe('User', () => {
     describe('Get me', () => {
       it('should throw if no auth provided', async () => {
@@ -157,7 +158,7 @@ describe('App e2e', () => {
           .expectStatus(HttpStatus.UNAUTHORIZED);
       });
 
-      it('should throw if validation failed create bookmarks', async () => {
+      it('should throw if validation failed', async () => {
         await pactum
           .spec()
           .post('/bookmarks')
